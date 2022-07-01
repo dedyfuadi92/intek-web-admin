@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="{{asset('vendors/summernote/summernote-lite.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/simple-datatables/style.css')}}">
-
+    @yield('styles')
 </head>
 
 <body>
@@ -62,9 +62,8 @@
     <script src="{{asset('js/pages/dashboard.js')}}"></script>
 
     <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('vendors/simple-datatables/simple-datatables.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
-
+    @yield('scripts')
 </body>
 
 </html>

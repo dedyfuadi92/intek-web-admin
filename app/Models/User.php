@@ -17,10 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id',
     ];
 
     /**
@@ -41,4 +39,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $with = ['user_level'];
+
+    public function user_level()
+    {
+        return $this->belongsTo(UserLevel::class);
+    }
+    public function blog()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

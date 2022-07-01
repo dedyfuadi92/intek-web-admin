@@ -24,4 +24,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/users', [UserController::class, 'index'])->name('users');
+
+Route::prefix('users')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('User');
+    Route::get('/list', [UserController::class, 'list'])->name('User.list');
+    Route::post('/store', [UserController::class, 'store'])->name('User.store');
+    Route::get('/detail/{id}', [UserController::class, 'detail'])->name('User.detail');
+    Route::post('/update', [UserController::class, 'update'])->name('User.update');
+    Route::delete('/delete', [UserController::class, 'destroy'])->name('User.delete');
+});
